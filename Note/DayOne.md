@@ -32,13 +32,4 @@
 - **Bubbling Event**: Sự kiện truyền từ **con → cha** (VD: `MouseDown`).  
 - **Tunneling Event**: Sự kiện truyền từ **cha → con**, thường có tiền tố `Preview` (VD: `PreviewMouseDown`).  
 - **Direct Event**: Chỉ xảy ra trên chính control được kích hoạt.  
-
-📌 **8. DependencyProperty vs Property bình thường**  
-- **DependencyProperty** giúp hỗ trợ **Binding, Animation, Styling** và tiết kiệm bộ nhớ.  
-- **Property bình thường** không có khả năng thông báo thay đổi cho UI.  
-- **Cách khai báo DependencyProperty**:  
-  ```csharp
-  public static readonly DependencyProperty MyProperty =
-      DependencyProperty.Register("MyText", typeof(string), typeof(MyControl), new PropertyMetadata("Default Value"));
-  ```
   
