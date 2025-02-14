@@ -14,7 +14,8 @@
                    Margin="0,10,0,0"/>
         <ListBox x:Name="TaskList"
                  Margin="10 40 10 50"
-                 ItemsSource="{Binding Tasks}">
+                 ItemsSource="{Binding Tasks}"
+                 SelectedItem="{Binding SelectedTask, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -25,13 +26,29 @@
             </ListBox.ItemTemplate>
             
         </ListBox>
+        <TextBox Text="{Binding NewTask, UpdateSourceTrigger=PropertyChanged}"
+                 Width="200"
+                 Height="30"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Bottom"
+                 Margin="10 0 0 10"/>
 
         <Button Content="Add"
-                Width="120"
-                Height="40"
-                HorizontalAlignment="Center"
+                Width="80"
+                Height="30"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
-                Margin="0 0 0 10"/>
+                Margin="220 0 0 10"
+                Command="{Binding AddTaskCommand}"/>
+        
+        <Button Content="Remove"
+                Width="80"
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0 0 10 10"
+                Command="{Binding RemoveTaskCommand}"
+                CommandParameter="{Binding SelectedItem, ElementName=TaskList}"/>
 
     </Grid>
 </Window>
